@@ -22,15 +22,15 @@
         <main class="main-content">
             <div class="email-composer">
                 <h2>Schedule New Email</h2>
-                <form class="compose-form">
-                    <input type="email" placeholder="To" required>
-                    <input type="text" placeholder="Subject" required>
-                    <textarea placeholder="Email content"></textarea>
+                <form class="compose-form" id="emailForm">
+                    <input type="email" id="recipient" placeholder="To" required>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                    <textarea id="body" placeholder="Email content"></textarea>
 
                     <div class="scheduling-options">
                         <div class="timezone-picker">
                             <label>Recipient's Timezone</label>
-                            <select>
+                            <select id="timezone">
                                 <option>UTC</option>
                                 <option>EST</option>
                                 <option>PST</option>
@@ -40,8 +40,8 @@
                         <div class="schedule-picker">
                             <label>Schedule For</label>
                             <div class="datetime-inputs">
-                                <input type="date" class="date-input">
-                                <input type="time" class="time-input">
+                                <input type="date" id="scheduleDate" class="date-input" required>
+                                <input type="time" id="scheduleTime" class="time-input" required>
                             </div>
                         </div>
                     </div>
@@ -53,6 +53,43 @@
     </div>
     <a href="index.html" class="brand-link">AutoMail</a>
     <script src="dashboard-auth.js"></script>
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const recipient = document.getElementById('recipient').value;
+            const subject = document.getElementById('subject').value;
+            const body = document.getElementById('body').value;
+            const scheduleDate = document.getElementById('scheduleDate').value;
+            const scheduleTime = document.getElementById('scheduleTime').value;
+
+            const scheduledTime = new Date(`${scheduleDate}T${scheduleTime}`).toISOString();
+
+            const data = {
+                recipient: recipient,
+                subject: subject,
+                body: body,
+                scheduledTime: scheduledTime
+            };
+
+            fetch('http://localhost:8080/api/users/schedule-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // Handle success (e.g., show a success message)
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    // Handle error (e.g., show an error message)
+                });
+        });
+    </script>
 </body>
 
 </html>
