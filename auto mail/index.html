@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AutoMail - Schedule Emails Intelligently</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>AutoMail</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <button class="cta-button" onclick="window.location.href='signup.html'">Get Started</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Automate Your Email Scheduling</h1>
+            <p>Optimize your email timing, track performance, and communicate effectively across time zones</p>
+            <button class="cta-button" onclick="window.location.href='signup.html'">Try for Free</button>
+        </div>
+    </header>
+
+    <section id="features">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Timezone Smart</h3>
+                <p>Automatically adjusts to recipient's timezone</p>
+            </div>
+            <div class="feature-card">
+                <h3>Smart Reminders</h3>
+                <p>Context-aware follow-ups</p>
+            </div>
+            <div class="feature-card">
+                <h3>Analytics</h3>
+                <p>Track email performance</p>
+            </div>
+            <div class="feature-card">
+                <h3>Bulk Mail</h3>
+                <p>Send emails to multiple recipients at once with ease</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- After Features Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Sign Up</h3>
+                <p>Create your free account in less than a minute</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Compose Email</h3>
+                <p>Write your email and set recipient's timezone</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Schedule</h3>
+                <p>Choose the perfect time for delivery</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Track Results</h3>
+                <p>Monitor email performance and engagement</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <button class="cta-button" onclick="window.location.href='signup.html'">Get Started Now</button>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <h2>Simple Pricing</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <div class="price">₹0/mo</div>
+                <ul>
+                    <li>Up to 50 scheduled emails/month</li>
+                    <li>Basic analytics</li>
+                    <li>Time zone support</li>
+                    <li>Email support</li>
+                </ul>
+                <button class="pricing-button" onclick="window.location.href='signup.html'">Get Started</button>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Pro</h3>
+                <div class="price">₹100/mo</div>
+                <ul>
+                    <li>Unlimited scheduled emails</li>
+                    <li>Advanced analytics</li>
+                    <li>Priority support</li>
+                    <li>Custom scheduling rules</li>
+                    <li>Team collaboration</li>
+                </ul>
+                <button class="pricing-button" onclick="window.location.href='signup.html'">Choose Pro</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <div class="price">Contact Us</div>
+                <ul>
+                    <li>Everything in Pro</li>
+                    <li>Custom integration</li>
+                    <li>Dedicated support</li>
+                    <li>SLA guarantee</li>
+                    <li>Custom features</li>
+                </ul>
+                <button class="pricing-button" onclick="window.location.href='contact.html'">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add auth check script -->
+    <script>
+        // Check if user is already logged in
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = localStorage.getItem('user');
+            if (user) {
+                // If user is logged in, redirect to dashboard
+                const buttons = document.querySelectorAll('.cta-button, .pricing-button');
+                buttons.forEach(button => {
+                    if (!button.onclick.toString().includes('contact.html')) {
+                        button.onclick = () => window.location.href = 'dashboard.html';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

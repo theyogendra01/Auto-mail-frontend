@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Auto Mail</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">Schedule Email</a>
+                <a href="analytics.html">Analytics</a>
+                <a href="templates.html">Templates</a>
+                <a href="settings.html">Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="email-composer">
+                <h2>Schedule New Email</h2>
+                <form class="compose-form">
+                    <input type="email" placeholder="To" required>
+                    <input type="text" placeholder="Subject" required>
+                    <textarea placeholder="Email content"></textarea>
+
+                    <div class="scheduling-options">
+                        <div class="timezone-picker">
+                            <label>Recipient's Timezone</label>
+                            <select>
+                                <option>UTC</option>
+                                <option>EST</option>
+                                <option>PST</option>
+                            </select>
+                        </div>
+
+                        <div class="schedule-picker">
+                            <label>Schedule For</label>
+                            <div class="datetime-inputs">
+                                <input type="date" class="date-input">
+                                <input type="time" class="time-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-schedule">Schedule Email</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <a href="index.html" class="brand-link">AutoMail</a>
+    <script src="dashboard-auth.js"></script>
+</body>
+
+</html>

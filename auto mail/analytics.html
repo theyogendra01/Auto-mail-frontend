@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics - Auto Mail</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add Chart.js for analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">Schedule Email</a>
+                <a href="analytics.html" class="active">Analytics</a>
+                <a href="templates.html">Templates</a>
+                <a href="settings.html">Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="analytics-container">
+                <h2>Email Analytics</h2>
+
+                <!-- Overview Cards -->
+                <div class="analytics-overview">
+                    <div class="stat-card">
+                        <h3>Total Emails Sent</h3>
+                        <p class="stat-number">1,234</p>
+                        <span class="stat-trend positive">↑ 12% vs last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Average Open Rate</h3>
+                        <p class="stat-number">68%</p>
+                        <span class="stat-trend positive">↑ 5% vs last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Response Rate</h3>
+                        <p class="stat-number">42%</p>
+                        <span class="stat-trend negative">↓ 3% vs last month</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Scheduled Emails</h3>
+                        <p class="stat-number">45</p>
+                        <span class="stat-trend">Active</span>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="analytics-charts">
+                    <div class="chart-container">
+                        <h3>Email Performance Over Time</h3>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Best Sending Times</h3>
+                        <canvas id="timingChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon sent">✓</div>
+                            <div class="activity-details">
+                                <p>Project Update Email sent to team@example.com</p>
+                                <span>2 hours ago • 80% open rate</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon scheduled">⏰</div>
+                            <div class="activity-details">
+                                <p>Meeting Follow-up scheduled for client@example.com</p>
+                                <span>Scheduled for tomorrow at 10:00 AM</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon opened">👁</div>
+                            <div class="activity-details">
+                                <p>Proposal Email opened by investor@example.com</p>
+                                <span>Yesterday • Opened 3 times</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <a href="index.html" class="brand-link">AutoMail</a>
+
+    <script src="analytics.js"></script>
+</body>
+
+</html>
